@@ -8,10 +8,12 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
 import { ArrowLeft, Star, MapPin, Clock, Minus, Plus } from 'lucide-react';
 import { toast } from 'sonner';
+import { useCart } from '@/contexts/CartContext';
 
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { addItem } = useCart();
   const [quantity, setQuantity] = useState(1);
   const [observations, setObservations] = useState('');
 
@@ -41,14 +43,17 @@ const ProductDetail = () => {
   };
 
   const addToCart = () => {
-    const orderData = {
-      product: product.name,
+    const cartItem = {
+      id: product.id || '1',
+      name: product.name,
+      price: product.price,
       quantity,
-      observations,
-      total: product.price * quantity
+      store: product.store.name,
+      observations
     };
     
-    console.log('Adding to cart:', orderData);
+    addItem(cartItem);
+    console.log('Adding to cart:', cartItem);
     toast.success(`${quantity}x ${product.name} adicionado ao carrinho!`);
   };
 

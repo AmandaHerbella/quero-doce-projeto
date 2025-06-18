@@ -1,24 +1,51 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Header = () => {
   const [cartItems, setCartItems] = useState(0);
+  const navigate = useNavigate();
 
   return (
     <header className="bg-gradient-to-r from-pink-400 to-rose-400 text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold">QueroDoce</h1>
+            <h1 
+              className="text-2xl font-bold cursor-pointer"
+              onClick={() => navigate('/')}
+            >
+              QueroDoce
+            </h1>
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#" className="hover:text-pink-200 transition-colors duration-200">Bolos</a>
-            <a href="#" className="hover:text-pink-200 transition-colors duration-200">Tortas</a>
-            <a href="#" className="hover:text-pink-200 transition-colors duration-200">Sorvetes</a>
-            <a href="#" className="hover:text-pink-200 transition-colors duration-200">Fitness</a>
+            <button 
+              onClick={() => navigate('/products')}
+              className="hover:text-pink-200 transition-colors duration-200"
+            >
+              Bolos
+            </button>
+            <button 
+              onClick={() => navigate('/products')}
+              className="hover:text-pink-200 transition-colors duration-200"
+            >
+              Tortas
+            </button>
+            <button 
+              onClick={() => navigate('/products')}
+              className="hover:text-pink-200 transition-colors duration-200"
+            >
+              Sorvetes
+            </button>
+            <button 
+              onClick={() => navigate('/products')}
+              className="hover:text-pink-200 transition-colors duration-200"
+            >
+              Fitness
+            </button>
           </nav>
 
           <div className="flex items-center space-x-4">

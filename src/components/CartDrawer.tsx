@@ -3,7 +3,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
-import { X, Trash } from 'lucide-react';
+import { Trash } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 
 interface CartDrawerProps {
@@ -27,9 +27,6 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
         <SheetHeader className="p-4 pb-2">
           <div className="flex items-center justify-between">
             <SheetTitle className="text-lg font-semibold">Seu pedido em</SheetTitle>
-            <Button variant="ghost" size="icon" onClick={onClose}>
-              <X className="h-4 w-4" />
-            </Button>
           </div>
           <div className="text-left">
             <h2 className="text-xl font-bold">Delícias da Joana</h2>

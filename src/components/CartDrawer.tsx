@@ -1,18 +1,10 @@
 
-import React, { useState } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
 import { X, Trash } from 'lucide-react';
-
-interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-  store: string;
-  image?: string;
-}
+import { useCart } from '@/contexts/CartContext';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -20,22 +12,14 @@ interface CartDrawerProps {
 }
 
 const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
-  // Mock cart items - in real app this would come from context/state management
-  const [cartItems, setCartItems] = useState<CartItem[]>([
-    {
-      id: '1',
-      name: 'Doce de frutas vermelhas',
-      price: 50.00,
-      quantity: 1,
-      store: 'Delícias da Joana'
-    }
-  ]);
+  const navigate = useNavigate();
+  const { items, removeItem, getTotal } = useCart();
+  const total = getTotal();
 
-  const removeItem = (id: string) => {
-    setCartItems(items => items.filter(item => item.id !== id));
+  const handleCheckout = () => {
+    onClose();
+    navigate('/checkout');
   };
-
-  const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
@@ -56,17 +40,17 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
         </SheetHeader>
 
         <div className="flex-1 overflow-y-auto px-4">
-          {cartItems.length === 0 ? (
+          {items.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-32 text-gray-500">
               <p>Seu carrinho está vazio</p>
             </div>
           ) : (
             <div className="space-y-4">
-              {cartItems.map((item) => (
+              {items.map((item) => (
                 <div key={item.id} className="flex items-center justify-between py-3 border-b border-gray-100">
                   <div className="flex-1">
                     <p className="font-medium text-sm">{item.quantity}x {item.name}</p>
-                    <p className="text-pink-600 font-semibold">R$ {item.price.toFixed(2).replace('.', ',')}</p>
+                    <p className="text-pink-600 font-semibold">R$ {(item.price * item.quantity).toFixed(2).replace('.', ',')}</p>
                   </div>
                   <Button
                     variant="ghost"
@@ -82,7 +66,7 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
           )}
         </div>
 
-        {cartItems.length > 0 && (
+        {items.length > 0 && (
           <div className="p-4 border-t bg-white">
             <div className="space-y-3">
               <div className="flex justify-between items-center">
@@ -92,10 +76,7 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
               
               <Button 
                 className="w-full bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-lg font-semibold"
-                onClick={() => {
-                  // Handle checkout
-                  console.log('Finalizing order with items:', cartItems);
-                }}
+                onClick={handleCheckout}
               >
                 Realizar pedido
               </Button>

@@ -32,16 +32,25 @@ const Checkout = () => {
       return;
     }
 
-    console.log('Finalizing order:', {
-      items,
+    const orderData = {
+      orderCode: '#' + Math.random().toString(36).substr(2, 6).toUpperCase(),
+      items: items.map(item => ({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        quantity: item.quantity,
+        total: item.price * item.quantity
+      })),
       customer: { name: customerName, cpf, address, cep },
       paymentMethod,
       total
-    });
+    };
+
+    console.log('Finalizing order:', orderData);
     
     toast.success('Pedido realizado com sucesso!');
     clearCart();
-    navigate('/');
+    navigate('/order-tracking', { state: { orderData } });
   };
 
   if (items.length === 0) {

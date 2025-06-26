@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
 import CartDrawer from './CartDrawer';
@@ -55,10 +55,20 @@ const Header = () => {
 
             <div className="flex items-center space-x-4">
               <span className="hidden sm:inline text-sm">Sobre nós</span>
+              
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={() => navigate('/login')}
+                className="hover:bg-pink-500/20"
+              >
+                <User className="h-5 w-5" />
+              </Button>
+              
               <Button 
                 variant="ghost" 
                 size="sm" 
-                className="relative"
+                className="relative hover:bg-pink-500/20"
                 onClick={() => setIsCartOpen(true)}
               >
                 <ShoppingCart className="h-5 w-5" />

@@ -1,8 +1,11 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative bg-gradient-to-r from-pink-400 to-rose-400 text-white py-20 px-4 overflow-hidden">
       <div className="absolute inset-0 bg-black/10"></div>
@@ -17,6 +20,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
+                onClick={() => navigate('/register')}
               >
                 Quero comprar
               </Button>
@@ -24,6 +28,7 @@ const Hero = () => {
                 size="lg" 
                 variant="outline" 
                 className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-8 py-3 rounded-full font-semibold transition-all duration-300"
+                onClick={() => navigate('/shop-register')}
               >
                 Quero vender
               </Button>

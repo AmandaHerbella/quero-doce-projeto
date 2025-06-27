@@ -59,6 +59,15 @@ const Header = () => {
               <Button 
                 variant="ghost" 
                 size="sm"
+                onClick={() => navigate('/register')}
+                className="hover:bg-pink-500/20 text-sm"
+              >
+                Cadastre-se
+              </Button>
+              
+              <Button 
+                variant="ghost" 
+                size="sm"
                 onClick={() => navigate('/login')}
                 className="hover:bg-pink-500/20"
               >

@@ -1,16 +1,43 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ShoppingCart, User } from 'lucide-react';
+import { ShoppingCart, User, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
+import { useAuth } from '@/contexts/AuthContext';
 import CartDrawer from './CartDrawer';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const navigate = useNavigate();
   const { getItemCount } = useCart();
+  const { user, userRole, signOut } = useAuth();
   const cartItems = getItemCount();
+
+  const handleUserClick = () => {
+    if (!user) {
+      navigate('/auth');
+    }
+  };
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/');
+  };
+
+  const handleDashboardClick = () => {
+    if (userRole === 'shop_owner') {
+      navigate('/shop/dashboard');
+    } else {
+      navigate('/');
+    }
+  };
 
   return (
     <>
@@ -56,23 +83,44 @@ const Header = () => {
             <div className="flex items-center space-x-4">
               <span className="hidden sm:inline text-sm">Sobre nós</span>
               
-              <Button 
-                variant="ghost" 
-                size="sm"
-                onClick={() => navigate('/register')}
-                className="hover:bg-pink-500/20 text-sm"
-              >
-                Cadastre-se
-              </Button>
-              
-              <Button 
-                variant="ghost" 
-                size="sm"
-                onClick={() => navigate('/login')}
-                className="hover:bg-pink-500/20"
-              >
-                <User className="h-5 w-5" />
-              </Button>
+              {!user ? (
+                <>
+                  <Button 
+                    variant="ghost" 
+                    size="sm"
+                    onClick={() => navigate('/auth')}
+                    className="hover:bg-pink-500/20 text-sm"
+                  >
+                    Cadastre-se
+                  </Button>
+                  
+                  <Button 
+                    variant="ghost" 
+                    size="sm"
+                    onClick={handleUserClick}
+                    className="hover:bg-pink-500/20"
+                  >
+                    <User className="h-5 w-5" />
+                  </Button>
+                </>
+              ) : (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="sm" className="hover:bg-pink-500/20">
+                      <User className="h-5 w-5" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuItem onClick={handleDashboardClick}>
+                      {userRole === 'shop_owner' ? 'Painel da Loja' : 'Minha Conta'}
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={handleSignOut}>
+                      <LogOut className="mr-2 h-4 w-4" />
+                      Sair
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              )}
               
               <Button 
                 variant="ghost" 

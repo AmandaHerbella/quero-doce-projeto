@@ -2,9 +2,27 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { useAuth } from '@/contexts/AuthContext';
 
 const Hero = () => {
   const navigate = useNavigate();
+  const { user, userRole } = useAuth();
+
+  const handleBuyClick = () => {
+    if (user && userRole === 'customer') {
+      navigate('/products');
+    } else {
+      navigate('/auth');
+    }
+  };
+
+  const handleSellClick = () => {
+    if (user && userRole === 'shop_owner') {
+      navigate('/shop/dashboard');
+    } else {
+      navigate('/auth');
+    }
+  };
 
   return (
     <section className="relative bg-gradient-to-r from-pink-400 to-rose-400 text-white py-20 px-4 overflow-hidden">
@@ -20,7 +38,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
-                onClick={() => navigate('/register')}
+                onClick={handleBuyClick}
               >
                 Quero comprar
               </Button>
@@ -28,7 +46,7 @@ const Hero = () => {
                 size="lg" 
                 variant="outline" 
                 className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-8 py-3 rounded-full font-semibold transition-all duration-300"
-                onClick={() => navigate('/shop-register')}
+                onClick={handleSellClick}
               >
                 Quero vender
               </Button>

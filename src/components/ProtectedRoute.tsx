@@ -12,7 +12,7 @@ interface ProtectedRouteProps {
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ 
   children, 
   requiredRole, 
-  redirectTo = '/auth' 
+  redirectTo = '/login' 
 }) => {
   const { user, userRole, loading } = useAuth();
 
@@ -37,7 +37,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
     if (userRole === 'customer' && requiredRole === 'shop_owner') {
       return <Navigate to="/" replace />;
     }
-    return <Navigate to="/auth" replace />;
+    return <Navigate to="/login" replace />;
   }
 
   return <>{children}</>;

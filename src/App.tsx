@@ -12,7 +12,6 @@ import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import Checkout from "./pages/Checkout";
 import OrderTracking from "./pages/OrderTracking";
-import Auth from "./pages/Auth";
 import LoginPage from "./pages/LoginPage";
 import RegisterClient from "./pages/RegisterClient";
 import RegisterEnterprise from "./pages/RegisterEnterprise";
@@ -22,6 +21,7 @@ import ShopRegister from "./pages/ShopRegister";
 import ShopDashboard from "./pages/ShopDashboard";
 import ShopOrders from "./pages/ShopOrders";
 import ShopProducts from "./pages/ShopProducts";
+import AddProduct from "./pages/AddProduct";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,9 +38,8 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/products" element={<Products />} />
               <Route path="/product/:id" element={<ProductDetail />} />
-              <Route path="/auth" element={<Auth />} />
               
-              {/* New auth pages */}
+              {/* Auth pages */}
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register-client" element={<RegisterClient />} />
               <Route path="/register-enterprise" element={<RegisterEnterprise />} />
@@ -76,6 +75,11 @@ const App = () => (
               <Route path="/shop/products" element={
                 <ProtectedRoute requiredRole="shop_owner">
                   <ShopProducts />
+                </ProtectedRoute>
+              } />
+              <Route path="/shop/add-product" element={
+                <ProtectedRoute requiredRole="shop_owner">
+                  <AddProduct />
                 </ProtectedRoute>
               } />
               

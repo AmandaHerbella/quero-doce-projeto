@@ -4,99 +4,139 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Package, ShoppingBag, Plus, Eye } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Edit, Trash2 } from 'lucide-react';
+import { toast } from 'sonner';
 
 const ShopDashboard = () => {
   const navigate = useNavigate();
 
+  const products = [
+    {
+      id: 1,
+      name: 'Combo Cento de Doces',
+      image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=300&fit=crop',
+      price: 200,
+      rating: 5
+    },
+    {
+      id: 2,
+      name: 'Combo Cento de Doces',
+      image: 'https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=300&h=300&fit=crop',
+      price: 200,
+      rating: 5
+    },
+    {
+      id: 3,
+      name: 'Combo Cento de Doces',
+      image: 'https://images.unsplash.com/photo-1493962853295-0fd70327578a?w=300&h=300&fit=crop',
+      price: 200,
+      rating: 5
+    },
+    {
+      id: 4,
+      name: 'Combo Cento de Doces',
+      image: 'https://images.unsplash.com/photo-1498936178812-4b2e558d2937?w=300&h=300&fit=crop',
+      price: 200,
+      rating: 5
+    },
+    {
+      id: 5,
+      name: 'Combo Cento de Doces',
+      image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=300&fit=crop',
+      price: 200,
+      rating: 5
+    }
+  ];
+
+  const renderStars = (rating: number) => {
+    return Array.from({ length: 5 }, (_, i) => (
+      <span key={i} className={`text-sm ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`}>
+        ★
+      </span>
+    ));
+  };
+
+  const handleEdit = (productId: number) => {
+    toast.success('Função de edição será implementada em breve!');
+  };
+
+  const handleDelete = (productId: number) => {
+    toast.success('Produto removido com sucesso!');
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100">
+    <div className="min-h-screen bg-gradient-to-br from-pink-300 to-rose-300">
       <Header />
       
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">Painel</h1>
-          <div className="flex items-center space-x-2 mb-6">
-            <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
-              <span className="text-white text-sm font-bold">🍰</span>
+        {/* Header Section */}
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h1 className="text-4xl font-bold text-pink-600 mb-4">Painel</h1>
+            <div className="flex items-center space-x-3">
+              <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
+                <span className="text-white text-lg font-bold">🍰</span>
+              </div>
+              <h2 className="text-2xl font-semibold text-pink-600">Delícias da Joana</h2>
             </div>
-            <h2 className="text-xl font-semibold text-gray-700">Delícias da Joana</h2>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+          <div className="flex space-x-4">
             <Button 
               onClick={() => navigate('/shop/orders')}
-              className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full font-semibold"
+              className="bg-pink-400 hover:bg-pink-500 text-white px-6 py-3 rounded-full font-semibold"
             >
-              <Eye className="h-5 w-5 mr-2" />
               Ver pedidos
             </Button>
             <Button 
-              onClick={() => navigate('/shop/products')}
-              className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full font-semibold"
+              onClick={() => navigate('/shop/add-product')}
+              className="bg-pink-400 hover:bg-pink-500 text-white px-6 py-3 rounded-full font-semibold"
             >
-              <Plus className="h-5 w-5 mr-2" />
               Novo produto
             </Button>
           </div>
         </div>
 
-        {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">Pedidos Hoje</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-pink-600">12</div>
-            </CardContent>
-          </Card>
-          
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">Produtos Ativos</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-pink-600">8</div>
-            </CardContent>
-          </Card>
-          
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">Faturamento Hoje</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-pink-600">R$ 1.250</div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Recent Activity */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Atividade Recente</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3 p-3 bg-green-50 rounded-lg">
-                <ShoppingBag className="h-5 w-5 text-green-600" />
-                <div>
-                  <p className="font-medium">Novo pedido recebido</p>
-                  <p className="text-sm text-gray-600">Combo Cento de Doces - R$ 200,00</p>
-                </div>
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          {products.map((product) => (
+            <Card key={product.id} className="bg-white border-0 overflow-hidden shadow-lg">
+              <div className="relative overflow-hidden">
+                <img 
+                  src={product.image} 
+                  alt={product.name}
+                  className="w-full h-48 object-cover"
+                />
               </div>
               
-              <div className="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
-                <Package className="h-5 w-5 text-blue-600" />
-                <div>
-                  <p className="font-medium">Produto atualizado</p>
-                  <p className="text-sm text-gray-600">Macarons Coloridos - Preço alterado</p>
+              <CardContent className="p-4">
+                <h3 className="font-semibold text-gray-800 mb-2 line-clamp-2">{product.name}</h3>
+                <div className="flex items-center mb-2">
+                  {renderStars(product.rating)}
                 </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+                <p className="text-lg font-bold text-gray-800 mb-4">R$ {product.price},00</p>
+                
+                <div className="flex space-x-2">
+                  <Button 
+                    size="sm"
+                    onClick={() => handleEdit(product.id)}
+                    className="flex-1 bg-pink-400 hover:bg-pink-500 text-white rounded-full"
+                  >
+                    Editar
+                  </Button>
+                  <Button 
+                    size="sm"
+                    onClick={() => handleDelete(product.id)}
+                    className="flex-1 bg-pink-400 hover:bg-pink-500 text-white rounded-full"
+                  >
+                    Excluir
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
 
       <Footer />

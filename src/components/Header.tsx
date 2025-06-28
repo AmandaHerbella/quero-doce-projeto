@@ -22,7 +22,7 @@ const Header = () => {
 
   const handleUserClick = () => {
     if (!user) {
-      navigate('/auth');
+      navigate('/login');
     }
   };
 
@@ -88,7 +88,7 @@ const Header = () => {
                   <Button 
                     variant="ghost" 
                     size="sm"
-                    onClick={() => navigate('/auth')}
+                    onClick={() => navigate('/login')}
                     className="hover:bg-pink-500/20 text-sm"
                   >
                     Cadastre-se

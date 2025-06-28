@@ -13,6 +13,9 @@ import ProductDetail from "./pages/ProductDetail";
 import Checkout from "./pages/Checkout";
 import OrderTracking from "./pages/OrderTracking";
 import Auth from "./pages/Auth";
+import LoginPage from "./pages/LoginPage";
+import RegisterClient from "./pages/RegisterClient";
+import RegisterEnterprise from "./pages/RegisterEnterprise";
 import CustomerLogin from "./pages/CustomerLogin";
 import CustomerRegister from "./pages/CustomerRegister";
 import ShopRegister from "./pages/ShopRegister";
@@ -37,6 +40,11 @@ const App = () => (
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/auth" element={<Auth />} />
               
+              {/* New auth pages */}
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register-client" element={<RegisterClient />} />
+              <Route path="/register-enterprise" element={<RegisterEnterprise />} />
+              
               {/* Protected customer routes */}
               <Route path="/checkout" element={
                 <ProtectedRoute requiredRole="customer">
@@ -50,8 +58,8 @@ const App = () => (
               } />
               
               {/* Legacy routes - redirect to new auth */}
-              <Route path="/login" element={<CustomerLogin />} />
-              <Route path="/register" element={<CustomerRegister />} />
+              <Route path="/customer-login" element={<CustomerLogin />} />
+              <Route path="/customer-register" element={<CustomerRegister />} />
               <Route path="/shop-register" element={<ShopRegister />} />
               
               {/* Protected shop routes */}

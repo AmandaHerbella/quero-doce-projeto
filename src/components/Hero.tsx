@@ -12,7 +12,7 @@ const Hero = () => {
     if (user && userRole === 'customer') {
       navigate('/products');
     } else {
-      navigate('/auth');
+      navigate('/register-client');
     }
   };
 
@@ -20,7 +20,7 @@ const Hero = () => {
     if (user && userRole === 'shop_owner') {
       navigate('/shop/dashboard');
     } else {
-      navigate('/auth');
+      navigate('/register-enterprise');
     }
   };
 

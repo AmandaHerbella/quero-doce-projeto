@@ -10,6 +10,8 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import Index from "./pages/Index";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
+import ShopProfile from "./pages/ShopProfile";
+import Favorites from "./pages/Favorites";
 import Checkout from "./pages/Checkout";
 import OrderTracking from "./pages/OrderTracking";
 import LoginPage from "./pages/LoginPage";
@@ -38,6 +40,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/products" element={<Products />} />
               <Route path="/product/:id" element={<ProductDetail />} />
+              <Route path="/shop/:shopId" element={<ShopProfile />} />
               
               {/* Auth pages */}
               <Route path="/login" element={<LoginPage />} />
@@ -45,6 +48,11 @@ const App = () => (
               <Route path="/register-enterprise" element={<RegisterEnterprise />} />
               
               {/* Protected customer routes */}
+              <Route path="/favorites" element={
+                <ProtectedRoute requiredRole="customer">
+                  <Favorites />
+                </ProtectedRoute>
+              } />
               <Route path="/checkout" element={
                 <ProtectedRoute requiredRole="customer">
                   <Checkout />

@@ -27,7 +27,8 @@ const Products = () => {
       price: 200,
       rating: 5,
       category: 'Doces',
-      store: 'Doceria Premium'
+      store: 'Doceria Premium',
+      storeId: '1'
     },
     {
       id: '2',
@@ -36,7 +37,8 @@ const Products = () => {
       price: 120,
       rating: 5,
       category: 'Tortas',
-      store: 'Confeitaria Artesanal'
+      store: 'Confeitaria Artesanal',
+      storeId: '2'
     },
     {
       id: '3',
@@ -45,7 +47,8 @@ const Products = () => {
       price: 80,
       rating: 5,
       category: 'Doces',
-      store: 'Patisserie Francesa'
+      store: 'Patisserie Francesa',
+      storeId: '3'
     },
     {
       id: '4',
@@ -54,7 +57,8 @@ const Products = () => {
       price: 90,
       rating: 5,
       category: 'Bolos',
-      store: 'Confeitaria da Vovó'
+      store: 'Confeitaria da Vovó',
+      storeId: '4'
     },
     {
       id: '5',
@@ -63,7 +67,8 @@ const Products = () => {
       price: 45,
       rating: 4,
       category: 'Sorvetes',
-      store: 'Gelateria Italiana'
+      store: 'Gelateria Italiana',
+      storeId: '5'
     },
     {
       id: '6',
@@ -72,7 +77,8 @@ const Products = () => {
       price: 75,
       rating: 4,
       category: 'Fitness',
-      store: 'Healthy Cakes'
+      store: 'Healthy Cakes',
+      storeId: '6'
     }
   ];
 
@@ -201,7 +207,15 @@ const Products = () => {
                   
                   <CardContent className="p-4">
                     <h3 className="font-semibold text-gray-800 mb-2 line-clamp-2">{product.name}</h3>
-                    <p className="text-sm text-gray-600 mb-2">{product.store}</p>
+                    <p 
+                      className="text-sm text-pink-600 mb-2 cursor-pointer hover:text-pink-800 font-medium"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigate(`/shop/${product.storeId}`);
+                      }}
+                    >
+                      {product.store}
+                    </p>
                     <div className="flex items-center mb-2">
                       {renderStars(product.rating)}
                     </div>

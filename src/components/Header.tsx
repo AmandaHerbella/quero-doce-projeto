@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ShoppingCart, User, LogOut } from 'lucide-react';
+import { ShoppingCart, User, LogOut, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
 import { useAuth } from '@/contexts/AuthContext';
@@ -83,6 +83,18 @@ const Header = () => {
             <div className="flex items-center space-x-4">
               <span className="hidden sm:inline text-sm">Sobre nós</span>
               
+              {/* Favorites button for customers */}
+              {user && userRole === 'customer' && (
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="hover:bg-pink-500/20"
+                  onClick={() => navigate('/favorites')}
+                >
+                  <Heart className="h-5 w-5" />
+                </Button>
+              )}
+              
               {!user ? (
                 <>
                   <Button 
@@ -114,6 +126,12 @@ const Header = () => {
                     <DropdownMenuItem onClick={handleDashboardClick}>
                       {userRole === 'shop_owner' ? 'Painel da Loja' : 'Minha Conta'}
                     </DropdownMenuItem>
+                    {userRole === 'customer' && (
+                      <DropdownMenuItem onClick={() => navigate('/favorites')}>
+                        <Heart className="mr-2 h-4 w-4" />
+                        Favoritos
+                      </DropdownMenuItem>
+                    )}
                     <DropdownMenuItem onClick={handleSignOut}>
                       <LogOut className="mr-2 h-4 w-4" />
                       Sair

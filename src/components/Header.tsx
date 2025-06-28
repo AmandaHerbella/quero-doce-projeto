@@ -1,11 +1,12 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ShoppingCart, User, LogOut, Heart } from 'lucide-react';
+import { ShoppingCart, User, LogOut, Heart, Bell } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
 import { useAuth } from '@/contexts/AuthContext';
 import CartDrawer from './CartDrawer';
+import NotificationsDrawer from './NotificationsDrawer';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,10 +16,14 @@ import {
 
 const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const navigate = useNavigate();
   const { getItemCount } = useCart();
   const { user, userRole, signOut } = useAuth();
   const cartItems = getItemCount();
+
+  // Mock notification count - in a real app, this would come from a context or API
+  const notificationCount = 3;
 
   const handleUserClick = () => {
     if (!user) {
@@ -94,6 +99,21 @@ const Header = () => {
                   <Heart className="h-5 w-5" />
                 </Button>
               )}
+
+              {/* Notifications button */}
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="relative hover:bg-pink-500/20"
+                onClick={() => setIsNotificationsOpen(true)}
+              >
+                <Bell className="h-5 w-5" />
+                {notificationCount > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                    {notificationCount}
+                  </span>
+                )}
+              </Button>
               
               {!user ? (
                 <>
@@ -159,6 +179,7 @@ const Header = () => {
       </header>
 
       <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+      <NotificationsDrawer isOpen={isNotificationsOpen} onClose={() => setIsNotificationsOpen(false)} />
     </>
   );
 };

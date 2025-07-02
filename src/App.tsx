@@ -47,49 +47,19 @@ const App = () => (
               <Route path="/register-client" element={<RegisterClient />} />
               <Route path="/register-enterprise" element={<RegisterEnterprise />} />
               
-              {/* Protected customer routes */}
-              <Route path="/favorites" element={
-                <ProtectedRoute requiredRole="customer">
-                  <Favorites />
-                </ProtectedRoute>
-              } />
-              <Route path="/checkout" element={
-                <ProtectedRoute requiredRole="customer">
-                  <Checkout />
-                </ProtectedRoute>
-              } />
-              <Route path="/order-tracking" element={
-                <ProtectedRoute requiredRole="customer">
-                  <OrderTracking />
-                </ProtectedRoute>
-              } />
+              {/* Previously protected pages - now public */}
+              <Route path="/favorites" element={<Favorites />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/order-tracking" element={<OrderTracking />} />
+              <Route path="/shop/dashboard" element={<ShopDashboard />} />
+              <Route path="/shop/orders" element={<ShopOrders />} />
+              <Route path="/shop/products" element={<ShopProducts />} />
+              <Route path="/shop/add-product" element={<AddProduct />} />
               
               {/* Legacy routes - redirect to new auth */}
               <Route path="/customer-login" element={<CustomerLogin />} />
               <Route path="/customer-register" element={<CustomerRegister />} />
               <Route path="/shop-register" element={<ShopRegister />} />
-              
-              {/* Protected shop routes */}
-              <Route path="/shop/dashboard" element={
-                <ProtectedRoute requiredRole="shop_owner">
-                  <ShopDashboard />
-                </ProtectedRoute>
-              } />
-              <Route path="/shop/orders" element={
-                <ProtectedRoute requiredRole="shop_owner">
-                  <ShopOrders />
-                </ProtectedRoute>
-              } />
-              <Route path="/shop/products" element={
-                <ProtectedRoute requiredRole="shop_owner">
-                  <ShopProducts />
-                </ProtectedRoute>
-              } />
-              <Route path="/shop/add-product" element={
-                <ProtectedRoute requiredRole="shop_owner">
-                  <AddProduct />
-                </ProtectedRoute>
-              } />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

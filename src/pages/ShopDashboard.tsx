@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
@@ -10,6 +11,7 @@ import { toast } from 'sonner';
 const ShopDashboard = () => {
   const navigate = useNavigate();
 
+  // Default products data (no authentication required)
   const products = [
     {
       id: 1,

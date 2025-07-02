@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
@@ -12,7 +13,7 @@ const Favorites = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Mock favorite shops data
+  // Default favorite shops data (no authentication required)
   const favoriteShops = [
     {
       id: '1',

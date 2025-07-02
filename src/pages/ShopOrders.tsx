@@ -9,6 +9,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 const ShopOrders = () => {
   const navigate = useNavigate();
 
+  // Default orders data (no authentication required)
   const ordersInDelivery = [
     { codigo: '#1234DFE', entregador: 'José da Silva', pedido: '1x Doce de Frutas Vermelhas' },
     { codigo: '#1234DFE', entregador: 'José da Silva', pedido: '1x Cento de Frutas Vermelhas' },

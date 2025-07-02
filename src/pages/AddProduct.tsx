@@ -55,8 +55,8 @@ const AddProduct = () => {
                   type="text"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="aaaaaaaaaaaaa"
-                  className="bg-white border-none h-12 rounded-lg text-gray-400"
+                  placeholder="Digite o nome do produto"
+                  className="bg-white border-none h-12 rounded-lg"
                   required
                 />
               </div>
@@ -70,8 +70,8 @@ const AddProduct = () => {
                   name="description"
                   value={formData.description}
                   onChange={handleChange}
-                  placeholder="aaaaaaaaaaaaa"
-                  className="bg-white border-none rounded-lg text-gray-400 min-h-[100px]"
+                  placeholder="Descreva o produto"
+                  className="bg-white border-none rounded-lg min-h-[100px]"
                   required
                 />
               </div>
@@ -86,8 +86,8 @@ const AddProduct = () => {
                   type="text"
                   value={formData.acceptsCoupons}
                   onChange={handleChange}
-                  placeholder="aaaaaaaaaaaaa"
-                  className="bg-white border-none h-12 rounded-lg text-gray-400"
+                  placeholder="S ou N"
+                  className="bg-white border-none h-12 rounded-lg"
                   required
                 />
               </div>
@@ -105,8 +105,8 @@ const AddProduct = () => {
                   type="text"
                   value={formData.price}
                   onChange={handleChange}
-                  placeholder="aaaaaaaaaaaaa"
-                  className="bg-white border-none h-12 rounded-lg text-gray-400"
+                  placeholder="0,00"
+                  className="bg-white border-none h-12 rounded-lg"
                   required
                 />
               </div>
@@ -121,8 +121,8 @@ const AddProduct = () => {
                   type="text"
                   value={formData.maxQuantity}
                   onChange={handleChange}
-                  placeholder="aaaaaaaaaaaaa"
-                  className="bg-white border-none h-12 rounded-lg text-gray-400"
+                  placeholder="Digite a quantidade máxima"
+                  className="bg-white border-none h-12 rounded-lg"
                   required
                 />
               </div>

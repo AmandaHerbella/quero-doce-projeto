@@ -12,8 +12,8 @@ const OrderTracking = () => {
   const location = useLocation();
   const navigate = useNavigate();
   
-  // Get order data from navigation state or use default
-  const orderData = location.state?.orderData || {
+  // Default order data (no authentication required)
+  const orderData = {
     orderCode: '#1234DFE',
     items: [
       { id: '1', name: 'Doce de frutas vermelhas', price: 50.00, quantity: 1, total: 66.00 },

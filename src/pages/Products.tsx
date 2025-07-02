@@ -62,7 +62,7 @@ const Products = () => {
     {
       id: '5',
       name: 'Sorvete Artesanal Chocolate',
-      image: '/lovable-uploads/54ec6531-f0c4-4f98-9fb9-078f128cf239.png',
+      image: '/lovable-uploads/dc60b3f8-1c20-4ef3-83f1-81ffa45e83fb.png',
       price: 45,
       rating: 4,
       category: 'Sorvetes',
@@ -72,7 +72,7 @@ const Products = () => {
     {
       id: '6',
       name: 'Bolo Fitness Proteico',
-      image: '/lovable-uploads/1a583117-1ae4-401c-a3d4-29fb8f0a2d32.png',
+      image: '/lovable-uploads/bdf3e707-c1c7-4673-b699-47b17e1ca28d.png',
       price: 75,
       rating: 4,
       category: 'Fitness',

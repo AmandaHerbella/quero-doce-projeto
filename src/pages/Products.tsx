@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
@@ -43,7 +42,7 @@ const Products = () => {
     {
       id: '3',
       name: 'Macarons Coloridos',
-      image: 'https://images.unsplash.com/photo-1493962853295-0fd70327578a?w=300&h=300&fit=crop',
+      image: '/lovable-uploads/d6d6a7b3-0c5e-459a-91cf-f006f2e24f72.png',
       price: 80,
       rating: 5,
       category: 'Doces',
@@ -53,7 +52,7 @@ const Products = () => {
     {
       id: '4',
       name: 'Bolo Três Leites',
-      image: 'https://images.unsplash.com/photo-1498936178812-4b2e558d2937?w=300&h=300&fit=crop',
+      image: '/lovable-uploads/1a583117-1ae4-401c-a3d4-29fb8f0a2d32.png',
       price: 90,
       rating: 5,
       category: 'Bolos',
@@ -73,7 +72,7 @@ const Products = () => {
     {
       id: '6',
       name: 'Bolo Fitness Proteico',
-      image: 'https://images.unsplash.com/photo-1498936178812-4b2e558d2937?w=300&h=300&fit=crop',
+      image: '/lovable-uploads/1a583117-1ae4-401c-a3d4-29fb8f0a2d32.png',
       price: 75,
       rating: 4,
       category: 'Fitness',

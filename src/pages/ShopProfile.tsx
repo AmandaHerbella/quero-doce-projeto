@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
@@ -36,22 +35,22 @@ const ShopProfile = () => {
     },
     {
       id: '2',
-      name: 'Combo Cento de Doces',
+      name: 'Torta de Chocolate Premium',
       image: '/lovable-uploads/f7d5e91a-f251-466c-8925-0c7eb2b43202.png',
       price: 200,
       rating: 5
     },
     {
       id: '3',
-      name: 'Combo Cento de Doces',
-      image: 'https://images.unsplash.com/photo-1493962853295-0fd70327578a?w=300&h=300&fit=crop',
+      name: 'Macarons Coloridos',
+      image: '/lovable-uploads/d6d6a7b3-0c5e-459a-91cf-f006f2e24f72.png',
       price: 200,
       rating: 5
     },
     {
       id: '4',
-      name: 'Combo Cento de Doces',
-      image: 'https://images.unsplash.com/photo-1498936178812-4b2e558d2937?w=300&h=300&fit=crop',
+      name: 'Bolo Três Leites',
+      image: '/lovable-uploads/1a583117-1ae4-401c-a3d4-29fb8f0a2d32.png',
       price: 200,
       rating: 5
     },
@@ -64,22 +63,22 @@ const ShopProfile = () => {
     },
     {
       id: '6',
-      name: 'Combo Cento de Doces',
+      name: 'Torta de Chocolate Premium',
       image: '/lovable-uploads/f7d5e91a-f251-466c-8925-0c7eb2b43202.png',
       price: 200,
       rating: 5
     },
     {
       id: '7',
-      name: 'Combo Cento de Doces',
-      image: 'https://images.unsplash.com/photo-1493962853295-0fd70327578a?w=300&h=300&fit=crop',
+      name: 'Macarons Coloridos',
+      image: '/lovable-uploads/d6d6a7b3-0c5e-459a-91cf-f006f2e24f72.png',
       price: 200,
       rating: 5
     },
     {
       id: '8',
-      name: 'Combo Cento de Doces',
-      image: 'https://images.unsplash.com/photo-1498936178812-4b2e558d2937?w=300&h=300&fit=crop',
+      name: 'Bolo Três Leites',
+      image: '/lovable-uploads/1a583117-1ae4-401c-a3d4-29fb8f0a2d32.png',
       price: 200,
       rating: 5
     },
@@ -92,7 +91,7 @@ const ShopProfile = () => {
     },
     {
       id: '10',
-      name: 'Combo Cento de Doces',
+      name: 'Torta de Chocolate Premium',
       image: '/lovable-uploads/f7d5e91a-f251-466c-8925-0c7eb2b43202.png',
       price: 200,
       rating: 5

@@ -56,7 +56,7 @@ const Hero = () => {
           <div className="relative">
             <div className="bg-white/20 backdrop-blur-sm rounded-3xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
               <img 
-                src="/lovable-uploads/e9640279-bac1-4317-9721-8af69bb10370.png" 
+                src="/lovable-uploads/f5086a9f-6b97-4484-af5c-46f3a56ae666.png" 
                 alt="Delicious cakes and sweets" 
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />

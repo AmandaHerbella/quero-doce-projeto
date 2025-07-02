@@ -30,14 +30,14 @@ const ShopProfile = () => {
     {
       id: '1',
       name: 'Combo Cento de Doces',
-      image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=300&fit=crop',
+      image: '/lovable-uploads/54ec6531-f0c4-4f98-9fb9-078f128cf239.png',
       price: 200,
       rating: 5
     },
     {
       id: '2',
       name: 'Combo Cento de Doces',
-      image: 'https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=300&h=300&fit=crop',
+      image: '/lovable-uploads/f7d5e91a-f251-466c-8925-0c7eb2b43202.png',
       price: 200,
       rating: 5
     },
@@ -58,14 +58,14 @@ const ShopProfile = () => {
     {
       id: '5',
       name: 'Combo Cento de Doces',
-      image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=300&fit=crop',
+      image: '/lovable-uploads/54ec6531-f0c4-4f98-9fb9-078f128cf239.png',
       price: 200,
       rating: 5
     },
     {
       id: '6',
       name: 'Combo Cento de Doces',
-      image: 'https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=300&h=300&fit=crop',
+      image: '/lovable-uploads/f7d5e91a-f251-466c-8925-0c7eb2b43202.png',
       price: 200,
       rating: 5
     },
@@ -86,14 +86,14 @@ const ShopProfile = () => {
     {
       id: '9',
       name: 'Combo Cento de Doces',
-      image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=300&fit=crop',
+      image: '/lovable-uploads/54ec6531-f0c4-4f98-9fb9-078f128cf239.png',
       price: 200,
       rating: 5
     },
     {
       id: '10',
       name: 'Combo Cento de Doces',
-      image: 'https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=300&h=300&fit=crop',
+      image: '/lovable-uploads/f7d5e91a-f251-466c-8925-0c7eb2b43202.png',
       price: 200,
       rating: 5
     }
